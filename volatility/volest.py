@@ -38,7 +38,7 @@ def array_to_dataframe(ndarray):
 
 class VolatilityEstimator(object):
 
-    def __init__(self, price_data, estimator, bench_data=None):
+    def __init__(self, price_data, estimator, bench_data=None, trading_periods=252):
         """Constructor for volatility estimators
         
         Parameters
@@ -105,6 +105,7 @@ class VolatilityEstimator(object):
         self._start = start
         self._end = end
         self._estimator = estimator
+        self._trading_periods = trading_periods
         
         matplotlib.rc('image', origin='upper')
 
@@ -137,6 +138,7 @@ class VolatilityEstimator(object):
         return getattr(models, self._estimator).get_estimator(
             price_data=price_data,
             window=window,
+            trading_periods=self._trading_periods,
             clean=clean
         )
    
