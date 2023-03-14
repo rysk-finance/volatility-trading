@@ -142,6 +142,10 @@ class VolatilityEstimator(object):
             clean=clean
         )
    
+    def get_rolling_volatility(self, window=7):
+        return self._get_estimator(window=window, price_data=self._price_data)
+
+
     def cones(self, windows=[30, 60, 90, 120], quantiles=[0.25, 0.75]):
         """Plots volatility cones
         
