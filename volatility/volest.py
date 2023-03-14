@@ -247,7 +247,7 @@ class VolatilityEstimator(object):
         # turn on the grid
         box.grid(True, axis='y', which='major', alpha=0.5)
         
-        return fig, plt
+        return (fig, plt, data)
 
     def rolling_quantiles(self, window=30, quantiles=[0.25, 0.75]):
         """Plots rolling quantiles of volatility
